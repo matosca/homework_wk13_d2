@@ -40,10 +40,36 @@ public class FilesystemApplicationTests {
 		Folder folder = new Folder("codeclan", user);
 		folderRepository.save(folder);
 
+		Folder folder1 = new Folder("e29-classnotes", user);
+		folderRepository.save(folder1);
+
 		File file = new File("day_1","js", 2, folder);
 		fileRepository.save(file);
 
 		user.addFolder(folder);
 		userRepository.save(user);
+
+		user.addFolder(folder1);
+		userRepository.save(user);
 	}
+
+	@Test
+	public void deleteFilesAndFolders(){
+
+		User user = new User("Joan");
+		userRepository.save(user);
+		userRepository.delete(user);
+
+		Folder folder = new Folder("e29-classnotes", user);
+		folderRepository.save(folder);
+		folderRepository.delete(folder);
+
+		File file = new File("day_1","js", 2, folder);
+		fileRepository.save(file);
+
+		folder.addFiles(file);
+		folderRepository.save(folder);
+
+	}
+
 }

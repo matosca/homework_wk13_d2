@@ -64,4 +64,8 @@ public class Folder {
     public void addFiles(File file){
         files.add(file);
     }
+
+    public void deleteFiles(File file) {
+        files.remove(file);
+    }
 }

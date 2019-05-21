@@ -58,4 +58,8 @@ public class User {
     public void addFolder(Folder folder){
         folders.add(folder);
     }
+
+    public void deleteFolder(Folder folder) {
+        folders.remove(folder);
+    }
 }
